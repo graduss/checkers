@@ -1,13 +1,9 @@
-<template name="body">
-
-</template>
 <template name="board">
 	<svg width="280" height="280">
 		<rect x="1" y="1" width="278" height="278" stroke="black" fill="none"/>
-                <rect x="80" y="20" width="30" height="30" stroke="black" fill="black"/>
-                {{#each setCell}}
-                    {{> cell}}
-                {{/each}}
+        {{#each setCell}}
+            {{appendCell}}
+        {{/each}}
 	</svg>
 </template>
 
