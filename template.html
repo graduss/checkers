@@ -1,12 +1,6 @@
 <template name="board">
-	<svg width="280" height="280">
-		<rect x="1" y="1" width="278" height="278" stroke="black" fill="none"/>
-        {{#each setCell}}
-            {{appendCell}}
-        {{/each}}
-	</svg>
-</template>
-
-<template name="cell">
-	<rect x="{{x}}" y="{{y}}" width="30" height="30" stroke="black" fill="{{fill}}"/>
+    <svg width="412" height="412">
+        <rect x="3" y="3" width="406" height="406" stroke="black" stroke-width="2" fill="none"/>
+        <rect x="6" y="6" width="400" height="400" stroke="black" stroke-width="1" fill="#945923"/>
+    </svg>
 </template>
