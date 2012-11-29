@@ -1,7 +1,10 @@
-if (Meteor.isClient) {
+Checkers = new Meteor.Collection("checkers");
+if (Meteor.is_client) {
     Template.board.rendered = function () {
         appendCell(0,0);
+		//appendCheckers();
     };
+	Meteor.render(appendCheckers);
     function appendCell(i,j){
         var cell;
         if (i < 8) {
@@ -29,4 +32,27 @@ if (Meteor.isClient) {
         cell.setAttribute("fill",this.fill);
         return cell;
     }
+	function appendCheckers(){
+		var _checkers = Checkers.find({}).fetch();
+		for(var i=0; i<_checkers.linght; i++){
+			$("svg").append(createChecker.append(_checkers[i]));
+		};
+	};
+	function createChecker(){
+		var ns = "http://www.w3.org/2000/svg";
+        var checker = document.createElementNS(ns,"circle");
+        checker.setAttribute("cx",31+this.v*50);
+		checker.setAttribute("cy",31+this.h*50);
+		checker.setAttribute("r",40);
+		checker.setAttribute("fill",this.color);
+		return checker;
+	}
+	/*function insertCheckrs () {
+		for(var i=0; i<24; i++){
+			Checkers.insert({
+				v : (i==0)?0:
+					(i==8)?
+			});
+		}
+	}*/
 }
