@@ -1,6 +1,22 @@
 <template name="board">
-    <svg width="412" height="412">
-        <rect x="3" y="3" width="406" height="406" stroke="black" stroke-width="2" fill="none"/>
-        <rect x="6" y="6" width="400" height="400" stroke="black" stroke-width="1" fill="#945923"/>
-    </svg>
+	<table class="board" cellspacing="0">
+		<tr>
+			<td></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td></td>
+		</tr>
+		{{#each rows}}
+			{{> row}}
+		{{/each}}
+		<tr>
+			<td></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td></td>
+		</tr>
+	</table>
+</template>
+<template name="row">
+	<tr>
+		<td>{{rowNum}}</td>
+		{{#each cells}}
+			<td class={{background}}></td>
+		{{/each}}
+		<td>{{rowNum}}</td>
+	</tr>
 </template>
