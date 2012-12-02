@@ -16,3 +16,7 @@ td.blackCell {
 td.whiteCell {
 	background-color: brown;
 }
+.facet {
+	width : 20px;
+	height : 20px;
+}

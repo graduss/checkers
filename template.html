@@ -1,13 +1,13 @@
 <template name="board">
 	<table class="board" cellspacing="0">
 		<tr>
-			<td></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td></td>
+			<td class="facet"></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td class="facet"></td>
 		</tr>
 		{{#each rows}}
 			{{> row}}
 		{{/each}}
 		<tr>
-			<td></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td></td>
+			<td class="facet"></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td class="facet"></td>
 		</tr>
 	</table>
 </template>
@@ -15,8 +15,15 @@
 	<tr>
 		<td>{{rowNum}}</td>
 		{{#each cells}}
-			<td class={{background}}></td>
+			<td class={{background}}>
+			{{#if check}}
+				{{> checker check}}
+			{{/if}}
+			</td>
 		{{/each}}
 		<td>{{rowNum}}</td>
 	</tr>
+</template>
+<template name="checker">
+	<div class="{{color}}"/>
 </template>
