@@ -7,16 +7,30 @@ html, body{
 }
 table.board {
 	border: 2px double;
-	width : 440px;
-	height : 440px;
 }
 td.blackCell {
-	background-color: black;
+	background-color: #57391f;
+        width: 40px;
+        height: 40px;
 }
 td.whiteCell {
-	background-color: brown;
+	background-color: #a68c3c;
+        width: 40px;
+        height: 40px;
 }
 .facet {
 	width : 20px;
 	height : 20px;
+}
+div.bleck {
+    background-image : url('img/ch_b.png');
+    background-size: cover;
+    width: 90%;
+    height: 90%;
+}
+div.white {
+    background-image : url('img/ch_w.png');
+    background-size: cover;
+    width: 90%;
+    height: 90%;
 }

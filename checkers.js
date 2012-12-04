@@ -16,6 +16,17 @@ if (Meteor.is_client) {
 		}
 		return cells;
 	};
+        Template.checker.select = function(){
+            return Session.equals("select",this._id)?"border: 1px solid coral;":"";
+        };
+        Template.checker.events = {
+            "mousedown" : function(){
+                Session.set("select", this._id);
+            },
+            "mouseup" : function(){
+                Session.set("select", null);
+            }
+        };
 	function seachChecker(v,h,checkers){
 		for(var i=0; i<checkers.length; i++){
 			if(checkers[i].v == v && checkers[i].h == h) return checkers[i];
