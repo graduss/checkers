@@ -10,20 +10,19 @@
 			<td class="facet"></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td class="facet"></td>
 		</tr>
 	</table>
+    {{#each showChecker}}
+        {{> checker}}
+    {{/each}}
 </template>
 <template name="row">
 	<tr>
 		<td>{{rowNum}}</td>
 		{{#each cells}}
-			<td class={{background}}>
-			{{#if check}}
-				{{> checker check}}
-			{{/if}}
-			</td>
+			<td class={{background}}></td>
 		{{/each}}
 		<td>{{rowNum}}</td>
 	</tr>
 </template>
 <template name="checker">
-	<div id="{{_id}}" class="{{color}}"/>
+	<div id="{{_id}}" class="{{color}}" style="top:{{v}}px; left:{{h}}px; width:{{w}}px; height:{{w}}px"/>
 </template>

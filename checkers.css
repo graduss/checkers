@@ -23,14 +23,12 @@ td.whiteCell {
 	height : 20px;
 }
 div.bleck {
+    position: absolute;
     background-image : url('img/ch_b.png');
     background-size: cover;
-    width: 90%;
-    height: 90%;
 }
 div.white {
+    position: absolute;
     background-image : url('img/ch_w.png');
     background-size: cover;
-    width: 90%;
-    height: 90%;
 }

@@ -8,20 +8,40 @@ if (Meteor.is_client) {
 		return rows;
 	};
 	Template.row.cells = function(){
-		var check = Checkers.find({}).fetch();
 		var cells = [];
 		for(var i=1; i<=8; i++){
-			cells.push({background: (Math.pow(-1,i+this.rowNum)>0)?"whiteCell":"blackCell",
-						check: seachChecker(this.rowNum,i,check)});
+			cells.push({background: (Math.pow(-1,i+this.rowNum)>0)?"whiteCell":"blackCell"});
 		}
 		return cells;
 	};
         /*Template.checker.select = function(){
             return Session.equals("select",this._id)?"border: 1px solid coral;":"";
         };*/
+        Template.board.showChecker = function(){
+            var checkers = Checkers.find({}).fetch();
+            var checkersNum = checkers.length;
+            if (checkersNum == 0) return {};
+            
+            var table = $("table");
+            var offset = table.offset();
+            var TableGeometry = {
+                top : offset.top,
+                left : offset.left,
+                width : table.width(),
+                height : table.height()
+            };
+            var cellWidth = table.children().eq(0).children().eq(1).children().eq(1).width();
+            
+            for (var i=0; i<checkersNum; i++){
+                checkers[i].v = TableGeometry.top + Math.round(TableGeometry.height*checkers[i].v/100);
+                checkers[i].h = TableGeometry.left + Math.round(TableGeometry.width*checkers[i].h/100);
+                checkers[i].w = cellWidth*0.9;
+            }
+            return checkers;
+        }
         Template.checker.events = {
             "mousedown" : function(){
-                select.apply(this);
+                //select.apply(this);
                 //Session.set("select", this._id);
             },
             "mouseup" : function(){
