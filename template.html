@@ -10,9 +10,14 @@
 			<td class="facet"></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td class="facet"></td>
 		</tr>
 	</table>
+	<br/>
     {{#each showChecker}}
         {{> checker}}
     {{/each}}
+	{{> refresh}}
+</template>
+<template name="refresh">
+	<div class="button">Refresh</div>
 </template>
 <template name="row">
 	<tr>
